@@ -49,3 +49,19 @@ INSERT INTO users (Tipo_documento, Numero_documento, Primer_nombre, Segundo_nomb
 VALUES
 ('CC', '1234567890', 'Juan', 'Carlos', 'Pérez', 'Gómez', 'juan.perez@example.com', '3001234567', '1990-05-10', 'Masculino', '1234'),
 ('TI', '9876543210', 'Ana', NULL, 'López', NULL, 'ana.lopez@example.com', '3019876543', '2002-08-15', 'Femenino', 'abcd1234');
+
+-- Tabla citas
+CREATE TABLE IF NOT EXISTS citas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente VARCHAR(100) NOT NULL,
+    barbero VARCHAR(100) NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    servicio VARCHAR(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Datos de prueba para citas
+INSERT INTO citas (cliente, barbero, fecha, hora, servicio) VALUES
+('Carlos García', 'Juan Pérez', '2025-06-20', '10:00', 'Corte de cabello'),
+('María Torres', 'Luis Ramírez', '2025-06-20', '11:00', 'Barba y afeitado'),
+('Carlos García', 'Andrés López', '2025-06-21', '09:30', 'Coloración');

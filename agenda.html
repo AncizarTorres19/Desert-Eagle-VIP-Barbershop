@@ -17,6 +17,64 @@
         <div class="texto_pagina">
             <h1>Bienvenido a la página de agenda</h1>
         </div>
+        <div class="registro-panel">
+            <div class="logo">
+                <img src="img/logobarberia.jpg" alt="Logo Barbería">
+            </div>
+            <div class="registro-form-container">
+                <form class="registro-form" id="agendaForm" action="php/registrar_cita.php" method="POST" autocomplete="off">
+                    <h3>Registrar nueva cita</h3>
+                    <div class="input-group">
+                        <label for="cliente">Cliente:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="cliente" name="cliente" placeholder="Nombre del cliente" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="barbero">Barbero:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user-tie"></i></span>
+                        <input type="text" id="barbero" name="barbero" placeholder="Nombre del barbero" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="fecha">Fecha:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-calendar"></i></span>
+                        <input type="date" id="fecha" name="fecha" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="hora">Hora:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-clock"></i></span>
+                        <input type="time" id="hora" name="hora" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="servicio">Servicio:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-scissors"></i></span>
+                        <input type="text" id="servicio" name="servicio" placeholder="Tipo de servicio" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <button type="submit" class="btn-registro">Registrar cita</button>
+                </form>
+            </div>
+        </div>
+        <div class="agenda-lista-container" style="max-width:700px;margin:40px auto 0 auto;">
+            <h2 style="color:#fff;text-align:center;margin-bottom:18px;">Citas agendadas</h2>
+            <div id="tabla-citas"></div>
+        </div>
+        <script>
+        // Cargar citas agendadas
+        window.addEventListener('DOMContentLoaded', function() {
+            fetch('php/listar_citas.php')
+                .then(res => res.text())
+                .then(html => {
+                    document.getElementById('tabla-citas').innerHTML = html;
+                })
+                .catch(() => {
+                    document.getElementById('tabla-citas').innerHTML = '<p style="color:red;">No se pudo cargar la lista de citas.</p>';
+                });
+        });
+        </script>
     </div>
 </body>
 
