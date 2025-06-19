@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Barbero - Desert Eagle VIP Barbería</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="registro">
+    <div class="registro-panel">
+        <div class="logo">
+            <img src="img/logobarberia.jpg" alt="Logo Barbería">
+        </div>
+        <div class="registro-form-container">
+            <form class="registro-form" id="registroBarberoForm" action="php/registro_barbero.php" method="POST" autocomplete="off">
+                <h3>Registro de Barbero</h3>
+                <div class="form-step" id="step1">
+                    <div class="input-group">
+                        <label for="Primer_nombre">Primer Nombre:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Primer_nombre" name="Primer_nombre" placeholder="Primer Nombre" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Segundo_nombre">Segundo Nombre:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Segundo_nombre" name="Segundo_nombre" placeholder="Segundo Nombre" style="padding-left:32px;">
+                    </div>
+                    <div class="input-group">
+                        <label for="Primer_apellido">Primer Apellido:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Primer_apellido" name="Primer_apellido" placeholder="Primer Apellido" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Segundo_apellido">Segundo Apellido:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Segundo_apellido" name="Segundo_apellido" placeholder="Segundo Apellido" style="padding-left:32px;">
+                    </div>
+                    <div class="input-group">
+                        <label for="Especialidad">Especialidad:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-scissors"></i></span>
+                        <input type="text" id="Especialidad" name="Especialidad" placeholder="Especialidad (ej: Corte moderno, Barba, etc.)" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Telefono">Teléfono:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-phone"></i></span>
+                        <input type="tel" id="Telefono" name="Telefono" pattern="[0-9]{10}" maxlength="10" placeholder="Número de Teléfono" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio. 10 dígitos.</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Correo">Correo electrónico:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="Correo" name="Correo" placeholder="Correo electrónico" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio. Debe ser único.</span>
+                    </div>
+                    <button type="submit" class="menu-btn" style="width:100%;margin-top:18px;"><i class="fa-solid fa-check"></i> Registrar Barbero</button>
+                </div>
+                <div class="mensaje-registro" id="mensajeRegistro"></div>
+            </form>
+            <button class="btn-regresar" onclick="window.location.href='barberos.html'"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+        </div>
+    </div>
+    <script src="validaciones.js"></script>
+</body>
+</html>

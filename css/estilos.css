@@ -1,0 +1,118 @@
+/* === Estilos generales === */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #222;
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* === Menú desplegable === */
+.menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+}
+
+.menu-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+.menu-btn:hover {
+    background-color: #218838; /* Cambia al pasar el mouse */
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 150px;
+    z-index: 1;
+    right: 0;
+}
+
+.menu-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.menu-content a:hover {
+    background-color: #218838;
+    color: #fff;
+}
+
+/* === Mensajes de error === */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* === Fondo y paneles de páginas tipo Sobre Nosotros === */
+body.SobreNosotros {
+    background-color: #222;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+body.SobreNosotros::before {
+    content: "";
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../img/logobarberia.jpg'); /* Ajusta la ruta si es necesario */
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    width: 500px;
+    height: 500px;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+}
+body.SobreNosotros > * {
+    position: relative;
+    z-index: 1;
+}
+body.SobreNosotros .menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+body.SobreNosotros .texto_pagina {
+    text-align: center;
+    font-size: 22px;
+    max-width: 800px;
+    margin: 120px auto 20px;
+}
+body.SobreNosotros .contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* === Enlaces === */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+a:hover {
+    color: #218838;
+}
+
+/* Elimina estilos globales innecesarios para formularios, login, registro, recuperación, etc. */
+/* Los estilos específicos están en sus propios archivos CSS. */

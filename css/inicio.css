@@ -1,0 +1,150 @@
+/* Estilos específicos para la página de inicio de sesión */
+body.inicio .login {
+    background: rgb(177, 169, 169);
+    padding: 30px;
+    border-radius: 40px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    text-align: center;
+    /* Eliminado margin-left y margin-right para centrar el panel */
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+.inicio-panel {
+    max-width: 420px;
+    min-width: 320px;
+    width: 100%;
+    margin: 60px auto 0 auto;
+    background: rgba(34,34,34,0.98);
+    border-radius: 30px;
+    box-shadow: 0 0 30px #000a;
+    padding: 70px 24px 24px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: max-width 0.2s;
+}
+.inicio-panel .logo {
+    position: absolute;
+    left: 50%;
+    top: -45px;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 3;
+    pointer-events: none;
+}
+.inicio-panel .logo img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin: 0;
+    box-shadow: 0 2px 8px #0002;
+    background: #fff;
+}
+.inicio-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+}
+.inicio-form {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+    margin-top: 0;
+}
+.inicio-form h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 14px;
+    margin-top: 0 !important;
+    position: relative;
+    z-index: 2;
+}
+.inicio-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+}
+.inicio-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    color: #222;
+}
+.inicio-form input:focus {
+    outline: 2px solid #007bff;
+    background: #eaf4ff;
+}
+.inicio-form input.error-campo {
+    border-color: #e74c3c !important;
+    background: #fff0f0;
+    outline: 2px solid #e74c3c;
+}
+.inicio-form .campo-ayuda {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+    margin-top: -8px;
+    display: block;
+}
+.inicio-form .campo-icono {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
+    font-size: 18px;
+}
+.inicio-form .input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+.inicio-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+.inicio-form button[type="submit"]:hover {
+    background: #218838;
+}
+.inicio-form .mensaje-login {
+    margin-top: 10px;
+    color: #e74c3c;
+    font-size: 15px;
+    text-align: center;
+    min-height: 24px;
+}
+@media (max-width: 600px) {
+    .inicio-panel { padding: 10px 2vw; }
+    .inicio-form input { font-size: 14px; }
+    .inicio-panel .logo img { width: 80px; height: 80px; }
+}

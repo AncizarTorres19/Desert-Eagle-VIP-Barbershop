@@ -1,0 +1,109 @@
+/* Estilos específicos para la página Sobre Nosotros */
+.sobrenosotros-panel {
+    max-width: 900px;
+    margin: 60px auto 0 auto;
+    background: rgba(34,34,34,0.98);
+    border-radius: 30px;
+    box-shadow: 0 0 30px #000a;
+    padding: 40px 40px 30px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+.sobrenosotros-panel h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 8px #0008;
+}
+.sobrenosotros-panel section {
+    margin-bottom: 32px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #4446;
+}
+.sobrenosotros-panel section:last-child {
+    border-bottom: none;
+}
+.sobrenosotros-panel h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+}
+.sobrenosotros-panel p, .sobrenosotros-panel ul {
+    color: #eee;
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+.sobrenosotros-panel ul {
+    list-style: disc inside;
+    padding-left: 0;
+}
+.sobrenosotros-panel li {
+    margin-bottom: 4px;
+}
+.sobrenosotros-panel .equipo-barberos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+.sobrenosotros-panel .barbero-card {
+    background: #232323;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px #0004;
+    padding: 18px 12px 10px 12px;
+    width: 160px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.sobrenosotros-panel .barbero-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 6px 18px #0006;
+}
+.sobrenosotros-panel .barbero-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #007bff;
+}
+.sobrenosotros-panel .barbero-card p {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+}
+.sobrenosotros-panel .barbero-card b {
+    color: #007bff;
+}
+.sobrenosotros-panel .menu {
+    position: static;
+    margin-bottom: 30px;
+}
+.sobrenosotros-panel .menu-btn {
+    margin: 0 10px 10px 0;
+}
+.sobrenosotros-panel a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.sobrenosotros-panel a:hover {
+    color: #218838;
+}
+@media (max-width: 900px) {
+    .sobrenosotros-panel { padding: 20px 5vw; }
+    .sobrenosotros-panel .equipo-barberos { gap: 20px; }
+}
+@media (max-width: 600px) {
+    .sobrenosotros-panel { padding: 10px 2vw; }
+    .sobrenosotros-panel h1 { font-size: 1.5rem; }
+    .sobrenosotros-panel h2 { font-size: 1.1rem; }
+    .sobrenosotros-panel .barbero-card { width: 100px; padding: 10px 4px; }
+    .sobrenosotros-panel .barbero-card img { width: 60px; height: 60px; }
+}

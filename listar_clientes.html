@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes - Desert Eagle VIP Barbería</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/clientes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="SobreNosotros">
+    <div class="menu">
+        <button class="menu-btn" onclick="window.location.href='clientes.html'">Volver</button>
+        <button class="menu-btn" onclick="window.location.href='login.html'">Inicio</button>
+    </div>
+    <div class="clientes-panel">
+        <h1><i class="fa-solid fa-list"></i> Lista de Clientes</h1>
+        <div id="clientes-table-container">
+            <!-- Aquí se cargará la tabla de clientes vía AJAX -->
+        </div>
+    </div>
+    <script>
+    // Cargar la tabla de clientes desde PHP usando fetch
+    window.addEventListener('DOMContentLoaded', function() {
+        fetch('php/listar_clientes.php')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('clientes-table-container').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('clientes-table-container').innerHTML = '<p style="color:red;">No se pudo cargar la lista de clientes.</p>';
+            });
+    });
+    </script>
+</body>
+</html>

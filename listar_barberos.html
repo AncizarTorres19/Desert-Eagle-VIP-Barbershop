@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Barberos - Desert Eagle VIP Barbería</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/barberos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="SobreNosotros">
+    <div class="menu">
+        <button class="menu-btn" onclick="window.location.href='barberos.html'">Volver</button>
+        <button class="menu-btn" onclick="window.location.href='inicio.html'">Inicio</button>
+    </div>
+    <div class="barberos-panel">
+        <h1><i class="fa-solid fa-list"></i> Lista de Barberos</h1>
+        <div id="barberos-table-container"></div>
+    </div>
+    <script>
+    // Cargar la tabla de barberos desde PHP usando fetch
+    window.addEventListener('DOMContentLoaded', function() {
+        fetch('php/listar_barberos.php')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('barberos-table-container').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('barberos-table-container').innerHTML = '<p style="color:red;">No se pudo cargar la lista de barberos.</p>';
+            });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    container_name: barberia-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Hola123**
+      MYSQL_DATABASE: barberia
+    ports:
+      - "3307:3306" # Cambiado a 3307 para evitar conflicto
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+  php:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: barberia-php
+    depends_on:
+      - db
+    volumes:
+      - ./php:/var/www/html/php
+      - ./css:/var/www/html/css
+      - ./img:/var/www/html/img
+      - ./administrador.html:/var/www/html/administrador.html
+      - ./agenda.html:/var/www/html/agenda.html
+      - ./barberos.html:/var/www/html/barberos.html
+      - ./clientes.html:/var/www/html/clientes.html
+      - ./login.html:/var/www/html/login.html
+      - ./recuperar.html:/var/www/html/recuperar.html
+      - ./registro.html:/var/www/html/registro.html
+      - ./sobreNosotros.html:/var/www/html/sobreNosotros.html
+      - ./validaciones.js:/var/www/html/validaciones.js
+    ports:
+      - "8080:80"
+volumes:
+  db_data:

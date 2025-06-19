@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Barberos - Desert Eagle VIP Barbería</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/barberos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="SobreNosotros">
+    <div class="barberos-panel">
+        <div class="menu">
+            <button class="menu-btn" onclick="window.location.href='login.html'">Inicio</button>
+            <button class="menu-btn" onclick="window.location.href='barberos.html'">Volver</button>
+        </div>
+        <h1><i class="fa-solid fa-scissors"></i> Barberos</h1>
+        <p style="color:#ccc;font-size:1.1rem;">Consulta y administra los barberos registrados en Desert Eagle VIP Barbería.
+        </p>
+        <div class="barberos-links"
+            style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin:30px 0 10px 0;">
+            <a href="listar_barberos.html" class="barberos-link-card">
+                <span class="icon"><i class="fa-solid fa-list"></i></span>
+                <span>Ver lista de barberos</span>
+            </a>
+            <a href="registro_barbero.html" class="barberos-link-card">
+                <span class="icon"><i class="fa-solid fa-user-plus"></i></span>
+                <span>Registrar nuevo barbero</span>
+            </a>
+        </div>
+        <div id="barberos-table-container" style="margin-top:30px;"></div>
+    </div>
+    <script>
+    // Cargar la tabla de barberos desde PHP usando fetch
+    window.addEventListener('DOMContentLoaded', function() {
+        fetch('php/listar_barberos.php')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('barberos-table-container').innerHTML = html;
+            })
+            .catch(() => {
+                document.getElementById('barberos-table-container').innerHTML = '<p style="color:red;">No se pudo cargar la lista de barberos.</p>';
+            });
+    });
+    </script>
+</body>
+
+</html>

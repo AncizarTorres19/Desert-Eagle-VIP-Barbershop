@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperar Contraseña - Desert Eagle VIP</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/recuperar.css">
+</head>
+<body class="login">
+    <div class="recovery-container">
+        <div class="recovery-form">
+            <h2>Recuperar Contraseña</h2>
+            <form method="POST" action="php/recuperar.php">
+                <input type="email" name="correo" placeholder="Tu correo electrónico" required>
+                <button type="submit">Enviar enlace</button>
+            </form>
+            <!-- Aquí se mostrará el mensaje de éxito/error -->
+            <?php if (isset($_GET['msg'])): ?>
+                <div class="mensaje"><?php echo htmlspecialchars($_GET['msg']); ?></div>
+            <?php endif; ?>
+            <a href="login.html" class="back-link">Volver al inicio</a>
+        </div>
+    </div>
+</body>
+</html>

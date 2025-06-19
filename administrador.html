@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/administrador.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="SobreNosotros">
+    <div class="admin-panel">
+        <div class="menu">
+            <button class="menu-btn" onclick="window.location.href='login.html'">Inicio</button>
+            <form method="post" action="php/logout.php" style="display:inline;">
+                <button class="menu-btn" type="submit">Cerrar sesión</button>
+            </form>
+        </div>
+        <div class="admin-welcome">
+            <h1>Bienvenido al panel de administrador</h1>
+            <p>Gestiona la barbería, usuarios y agenda desde un solo lugar.</p>
+        </div>
+        <div class="admin-links">
+            <a href="clientes.html" class="admin-link-card">
+                <span class="icon"><i class="fa-solid fa-users"></i></span>
+                <span>Clientes</span>
+            </a>
+            <a href="barberos.html" class="admin-link-card">
+                <span class="icon"><i class="fa-solid fa-scissors"></i></span>
+                <span>Barberos</span>
+            </a>
+            <a href="agenda.html" class="admin-link-card">
+                <span class="icon"><i class="fa-solid fa-calendar-check"></i></span>
+                <span>Agenda</span>
+            </a>
+            <a href="sobreNosotros.html" class="admin-link-card">
+                <span class="icon"><i class="fa-solid fa-info-circle"></i></span>
+                <span>Información interna</span>
+            </a>
+        </div>
+        <div class="admin-section">
+            <h2>Acciones rápidas</h2>
+            <ul class="admin-actions">
+                <li><a href="registro.html"><i class="fa-solid fa-user-plus"></i> Registrar nuevo usuario</a></li>
+                <li><a href="clientes.html"><i class="fa-solid fa-list"></i> Listar clientes</a></li>
+                <li><a href="barberos.html"><i class="fa-solid fa-list"></i> Listar barberos</a></li>
+                <li><a href="agenda.html"><i class="fa-solid fa-calendar-alt"></i> Ver/editar agenda</a></li>
+            </ul>
+        </div>
+        <div class="admin-section info">
+            <h2>Información</h2>
+            <ul>
+                <li>Recuerda cerrar sesión al terminar.</li>
+                <li>Solo usuarios autorizados pueden acceder a este panel.</li>
+            </ul>
+        </div>
+    </div>
+    <script src="validaciones.js"></script>
+    <style>
+        .admin-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin: 30px 0 10px 0;
+        }
+        .admin-link-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #232323;
+            border-radius: 18px;
+            box-shadow: 0 2px 10px #0004;
+            padding: 22px 28px 16px 28px;
+            min-width: 120px;
+            text-align: center;
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+            position: relative;
+        }
+        .admin-link-card .icon {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .admin-link-card:hover {
+            background: #007bff;
+            color: #fff;
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 6px 18px #0006;
+        }
+        .admin-link-card:hover .icon {
+            color: #fff;
+        }
+        .admin-section h2 {
+            color: #007bff;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .admin-actions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+        }
+        .admin-actions li {
+            background: #282828;
+            border-radius: 10px;
+            padding: 10px 18px;
+            margin: 0;
+            font-size: 1rem;
+            box-shadow: 0 1px 4px #0002;
+            transition: background 0.2s;
+        }
+        .admin-actions li a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .admin-actions li:hover {
+            background: #007bff;
+        }
+        .admin-section.info ul {
+            color: #ccc;
+            font-size: 0.98rem;
+            margin-top: 8px;
+        }
+        @media (max-width: 700px) {
+            .admin-panel { padding: 18px 2vw; }
+            .admin-links { gap: 10px; }
+            .admin-link-card { padding: 16px 10px; min-width: 90px; font-size: 1rem; }
+        }
+    </style>
+</body>
+</html>

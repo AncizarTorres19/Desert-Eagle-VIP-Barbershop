@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Cliente</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="registro">
+    <div class="registro-panel">
+        <div class="logo">
+            <img src="img/logobarberia.jpg" alt="Logo Barbería">
+        </div>
+        <div class="registro-form-container">
+            <form class="registro-form" id="registroForm" action="php/registro_personas.php" method="POST" autocomplete="off">
+                <h3>Registro de personas</h3>
+                <!-- Paso 1 -->
+                <div class="form-step" id="step1">
+                    <div class="input-group">
+                        <label for="tipo_documento">Tipo de Documento:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-id-card"></i></span>
+                        <select name="Tipo_documento" id="tipo_documento" required style="padding-left:32px;">
+                            <option value="">Selecciona una opción</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                            <option value="TI">Tarjeta de Identidad</option>
+                            <option value="CE">Cédula de Extranjería</option>
+                            <option value="PAS">Pasaporte</option>
+                        </select>
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Numero_documento">Número de documento:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-hashtag"></i></span>
+                        <input type="text" id="Numero_documento" name="Numero_documento" placeholder="Número de documento" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio. Sin puntos ni espacios.</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Primer_nombre">Primer Nombre:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Primer_nombre" name="Primer_nombre" placeholder="Primer Nombre" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Primer_apellido">Primer Apellido:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Primer_apellido" name="Primer_apellido" placeholder="Primer Apellido" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Correo">Correo electrónico:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-envelope"></i></span>
+                        <input type="email" id="Correo" name="Correo" placeholder="Correo electrónico" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio. Debe ser único.</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="Telefono">Número de Teléfono:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-phone"></i></span>
+                        <input type="tel" id="Telefono" name="Telefono" pattern="[0-9]{10}" maxlength="10" placeholder="Número de Teléfono" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio. 10 dígitos.</span>
+                    </div>
+                    <button type="button" id="nextStep"><i class="fa-solid fa-arrow-right"></i> Siguiente</button>
+                </div>
+                <!-- Paso 2 -->
+                <div class="form-step" id="step2" style="display:none;">
+                    <div class="input-group">
+                        <label for="Segundo_nombre">Segundo Nombre:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Segundo_nombre" name="Segundo_nombre" placeholder="Segundo Nombre" style="padding-left:32px;">
+                    </div>
+                    <div class="input-group">
+                        <label for="Segundo_apellido">Segundo Apellido:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-user"></i></span>
+                        <input type="text" id="Segundo_apellido" name="Segundo_apellido" placeholder="Segundo Apellido" style="padding-left:32px;">
+                    </div>
+                    <div class="input-group">
+                        <label for="Fecha_Nacimiento">Fecha de nacimiento:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-calendar"></i></span>
+                        <input type="date" id="Fecha_Nacimiento" name="Fecha_Nacimiento" required style="padding-left:32px;">
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div class="input-group">
+                        <label for="sexo">Sexo:</label>
+                        <span class="campo-icono"><i class="fa-solid fa-venus-mars"></i></span>
+                        <select name="Sexo" id="sexo" required style="padding-left:32px;">
+                            <option value="" disabled selected>Selecciona una opción</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Otro">Otro</option>
+                        </select>
+                        <span class="campo-ayuda">Obligatorio</span>
+                    </div>
+                    <div style="display:flex; justify-content:space-between; gap:10px;">
+                        <button type="button" id="prevStep"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                        <button type="submit"><i class="fa-solid fa-check"></i> Registrarse</button>
+                    </div>
+                </div>
+                <div class="mensaje-registro" id="mensajeRegistro"></div>
+            </form>
+            <button class="btn-regresar" onclick="window.location.href='login.html'"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
+        </div>
+    </div>
+    <script>
+    // Lógica para formulario por pasos y validaciones visuales
+    const nextStepBtn = document.getElementById('nextStep');
+    const prevStepBtn = document.getElementById('prevStep');
+    const step1 = document.getElementById('step1');
+    const step2 = document.getElementById('step2');
+    const form = document.getElementById('registroForm');
+    const mensajeRegistro = document.getElementById('mensajeRegistro');
+
+    // Mostrar mensaje de error personalizado según parámetro en la URL
+    function mostrarErrorCampo(campo, mensaje) {
+        const el = document.getElementById(campo);
+        if (el) {
+            el.classList.add('error-campo');
+            el.focus();
+        }
+        mensajeRegistro.textContent = mensaje;
+        mensajeRegistro.style.color = 'red';
+    }
+    function limpiarErrores() {
+        document.querySelectorAll('.error-campo').forEach(e => e.classList.remove('error-campo'));
+        mensajeRegistro.textContent = '';
+    }
+    window.addEventListener('DOMContentLoaded', function() {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('error') === 'correo') {
+            mostrarErrorCampo('Correo', 'El correo electrónico ya está registrado. Usa otro.');
+        } else if (params.get('error') === 'documento') {
+            mostrarErrorCampo('Numero_documento', 'El número de documento ya está registrado. Usa otro.');
+        } else if (params.get('error') === 'sql') {
+            mensajeRegistro.textContent = 'Error inesperado en el registro. Intenta de nuevo.';
+            mensajeRegistro.style.color = 'red';
+        } else if (params.get('success') === '1') {
+            mensajeRegistro.textContent = '¡Registro exitoso! Serás redirigido al inicio de sesión en 3 segundos...';
+            mensajeRegistro.style.color = '#218838';
+            setTimeout(function() {
+                window.location.href = 'login.html';
+            }, 3000);
+            form.style.display = 'none';
+        }
+    });
+
+    nextStepBtn.onclick = function() {
+        limpiarErrores();
+        let valid = true;
+        let campos = ['tipo_documento','Numero_documento','Primer_nombre','Primer_apellido','Correo','Telefono'];
+        campos.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) {
+                el.classList.add('error-campo');
+                valid = false;
+            } else {
+                el.classList.remove('error-campo');
+            }
+        });
+        // Validar email
+        const email = document.getElementById('Correo');
+        if (email && !/^\S+@\S+\.\S+$/.test(email.value)) {
+            email.classList.add('error-campo');
+            valid = false;
+        }
+        // Validar teléfono
+        const tel = document.getElementById('Telefono');
+        if (tel && !/^\d{10}$/.test(tel.value)) {
+            tel.classList.add('error-campo');
+            valid = false;
+        }
+        if (!valid) {
+            mensajeRegistro.textContent = 'Por favor completa correctamente todos los campos obligatorios.';
+            mensajeRegistro.style.color = 'red';
+            return;
+        } else {
+            mensajeRegistro.textContent = '';
+        }
+        step1.style.display = 'none';
+        step2.style.display = 'block';
+    };
+    prevStepBtn.onclick = function() {
+        limpiarErrores();
+        step2.style.display = 'none';
+        step1.style.display = 'block';
+    };
+    form.onsubmit = function(e) {
+        limpiarErrores();
+        let valid = true;
+        let campos2 = ['Fecha_Nacimiento','sexo'];
+        campos2.forEach(id => {
+            const el = document.getElementById(id);
+            if (!el.value.trim()) {
+                el.classList.add('error-campo');
+                valid = false;
+            } else {
+                el.classList.remove('error-campo');
+            }
+        });
+        if (!valid) {
+            mensajeRegistro.textContent = 'Por favor completa correctamente todos los campos obligatorios.';
+            mensajeRegistro.style.color = 'red';
+            e.preventDefault();
+        } else {
+            mensajeRegistro.textContent = '';
+        }
+    };
+    </script>
+    <script src="js/validaciones.js"></script>
+</body>
+</html>

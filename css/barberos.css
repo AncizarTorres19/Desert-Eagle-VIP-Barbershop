@@ -1,0 +1,22 @@
+/* Estilos específicos para la página de barberos */
+.barberos-panel {
+    max-width: 700px;
+    margin: 100px auto 0 auto;
+    background: rgba(34,34,34,0.97);
+    border-radius: 30px;
+    box-shadow: 0 0 20px #0008;
+    padding: 40px 30px;
+    text-align: center;
+}
+.barberos-panel h1 {
+    color: #fff;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+.barberos-panel .menu {
+    position: static;
+    margin-bottom: 30px;
+}
+.barberos-panel .menu-btn {
+    margin: 0 10px 10px 0;
+}

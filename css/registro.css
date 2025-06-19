@@ -1,0 +1,204 @@
+/* Estilos específicos para la página de registro */
+.registro-panel {
+    max-width: 420px;
+    min-width: 320px;
+    width: 100%;
+    margin: 60px auto 0 auto;
+    background: rgba(34,34,34,0.98);
+    border-radius: 30px;
+    box-shadow: 0 0 30px #000a;
+    padding: 70px 24px 24px 24px; /* Agregado padding-top para separar el formulario del borde superior */
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: max-width 0.2s;
+    overflow: visible;
+}
+.registro-panel .logo {
+    position: absolute;
+    left: 50%;
+    top: -45px;
+    transform: translateX(-50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 3;
+    pointer-events: none;
+}
+.registro-panel .logo img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #007bff;
+    margin: 0;
+    box-shadow: 0 2px 8px #0002;
+    background: #fff;
+}
+.registro-form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; /* Más espacio para que el logo no tape el título */
+    padding-top: 0;
+}
+.registro-form {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: left;
+    margin-top: 0;
+}
+.registro-form h3 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 14px;
+    margin-top: 0 !important;
+    position: relative;
+    z-index: 2;
+}
+.registro-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 15px;
+}
+.registro-form input,
+.registro-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    color: #222;
+}
+.registro-form input[type="date"] {
+    height: 40px;
+    font-size: 16px;
+}
+.registro-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+.registro-form button[type="submit"]:hover {
+    background: #218838;
+}
+.btn-regresar {
+    margin-top: 18px;
+    background: #444;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-regresar:hover {
+    background: #007bff;
+}
+.registro-form input:focus, .registro-form select:focus {
+    outline: 2px solid #007bff;
+    background: #eaf4ff;
+}
+.registro-form input.error-campo, .registro-form select.error-campo {
+    border-color: #e74c3c !important;
+    background: #fff0f0;
+    outline: 2px solid #e74c3c;
+}
+.registro-form .campo-ayuda {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 8px;
+    margin-top: -8px;
+    display: block;
+}
+.registro-form .campo-icono {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #007bff;
+    font-size: 18px;
+}
+.registro-form .input-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+.registro-form label {
+    margin-bottom: 2px;
+}
+.registro-form .form-step {
+    margin-bottom: 0;
+    animation: fadeInStep 0.3s;
+}
+.registro-form .mensaje-registro {
+    margin-top: 10px;
+    color: #218838;
+    font-size: 15px;
+    text-align: center;
+    min-height: 24px;
+}
+@keyframes fadeInStep {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 600px) {
+    .registro-panel { padding: 10px 2vw; }
+    .registro-form input, .registro-form select { font-size: 14px; }
+    .registro-panel .logo img { width: 80px; height: 80px; }
+}
+
+/* Botones minimalistas para pasos */
+.registro-form button#nextStep,
+.registro-form button#prevStep {
+    width: 48%;
+    background: #f5f7fa;
+    color: #007bff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px #0001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: 0.5px;
+}
+.registro-form button#nextStep:hover {
+    background: #e6f0ff;
+    color: #218838;
+}
+.registro-form button#prevStep {
+    background: #f5f7fa;
+    color: #444;
+}
+.registro-form button#prevStep:hover {
+    background: #e6f0ff;
+    color: #007bff;
+}
