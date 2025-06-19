@@ -20,18 +20,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./php:/var/www/html/php
-      - ./css:/var/www/html/css
-      - ./img:/var/www/html/img
-      - ./administrador.html:/var/www/html/administrador.html
-      - ./agenda.html:/var/www/html/agenda.html
-      - ./barberos.html:/var/www/html/barberos.html
-      - ./clientes.html:/var/www/html/clientes.html
-      - ./login.html:/var/www/html/login.html
-      - ./recuperar.html:/var/www/html/recuperar.html
-      - ./registro.html:/var/www/html/registro.html
-      - ./sobreNosotros.html:/var/www/html/sobreNosotros.html
-      - ./validaciones.js:/var/www/html/validaciones.js
+      - ./:/var/www/html
     ports:
       - "8080:80"
 volumes:
