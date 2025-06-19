@@ -6,7 +6,7 @@ $mensaje = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once "conexion.php";
     $correo = $conexion->real_escape_string($_POST['correo']);
-    $sql = "SELECT * FROM personas WHERE Correo = ? LIMIT 1";
+    $sql = "SELECT * FROM users WHERE Correo = ? LIMIT 1";
     $stmt = $conexion->prepare($sql);
     $stmt->bind_param("s", $correo);
     $stmt->execute();

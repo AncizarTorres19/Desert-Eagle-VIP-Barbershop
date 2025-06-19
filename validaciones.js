@@ -36,7 +36,7 @@ if (loginForm) {
 }
 
 // Validación de registro de cliente
-const registroForm = document.querySelector('form[action="php/registro_personas.php"]');
+const registroForm = document.querySelector('form[action="php/registro_usuarios.php"]');
 if (registroForm) {
     registroForm.addEventListener("submit", function (event) {
         let valid = true;

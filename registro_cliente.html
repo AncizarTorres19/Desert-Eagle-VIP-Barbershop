@@ -1,101 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Clientes - Desert Eagle VIP Barbería</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/clientes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-
-<body class="SobreNosotros">
-    <div class="menu">
-        <button class="menu-btn" onclick="window.location.href='login.html'">Inicio</button>
-    </div>
-    <div class="clientes-panel">
-        <h1><i class="fa-solid fa-users"></i> Clientes</h1>
-        <p style="color:#ccc;font-size:1.1rem;">Gestiona y consulta la información de tus clientes registrados en Desert Eagle VIP Barbería.</p>
-        <div class="clientes-links" style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin:30px 0 10px 0;">
-            <a href="listar_clientes.html" class="clientes-link-card">
-                <span class="icon"><i class="fa-solid fa-list"></i></span>
-                <span>Ver lista de clientes</span>
-            </a>
-            <a href="registro_cliente.html" class="clientes-link-card">
-                <span class="icon"><i class="fa-solid fa-user-plus"></i></span>
-                <span>Registrar nuevo cliente</span>
-            </a>
-        </div>
-        <img src="img/logobarberia.jpg" alt="Logo Barbería" style="width:120px;border-radius:50%;margin-top:18px;box-shadow:0 2px 8px #0002;background:#fff;">
-    </div>
-    <script src="validaciones.js"></script>
-    <style>
-        .clientes-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 24px;
-            margin: 30px 0 10px 0;
-        }
-
-        .clientes-link-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #232323;
-            border-radius: 18px;
-            box-shadow: 0 2px 10px #0004;
-            padding: 22px 28px 16px 28px;
-            min-width: 120px;
-            text-align: center;
-            color: #fff;
-            font-size: 1.1rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-            position: relative;
-        }
-
-        .clientes-link-card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-
-        .clientes-link-card:hover {
-            background: #007bff;
-            color: #fff;
-            transform: translateY(-6px) scale(1.04);
-            box-shadow: 0 6px 18px #0006;
-        }
-
-        .clientes-link-card:hover .icon {
-            color: #fff;
-        }
-
-        @media (max-width: 700px) {
-            .clientes-panel {
-                padding: 18px 2vw;
-            }
-
-            .clientes-links {
-                gap: 10px;
-            }
-
-            .clientes-link-card {
-                padding: 16px 10px;
-                min-width: 90px;
-                font-size: 1rem;
-            }
-        }
-    </style>
-</body>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +8,6 @@
     <link rel="stylesheet" href="css/registro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body class="registro">
     <div class="registro-panel">
         <div class="logo">
@@ -169,5 +72,4 @@
         </div>
     </div>
 </body>
-
 </html>

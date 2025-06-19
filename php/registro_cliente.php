@@ -1,6 +1,5 @@
 <?php
-// Mostrar errores para depurar si algo falla
-
+// Mostrar errores para depuración
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -12,57 +11,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $segundo_nombre = $_POST['Segundo_nombre'];
     $primer_apellido = $_POST['Primer_apellido'];
     $segundo_apellido = $_POST['Segundo_apellido'];
-    $fecha_nacimiento = $_POST['Fecha_Nacimiento'];
+    $numero_documento = $_POST['Numero_documento'];
     $correo = $_POST['Correo'];
     $telefono = $_POST['Telefono'];
-    $tipo_documento = $_POST['Tipo_documento'];
-    $numero_documento = $_POST['Numero_documento'];
     $sexo = $_POST['Sexo'];
 
     // Validar duplicados antes de registrar
-    $sql_check = "SELECT * FROM personas WHERE Correo = ? OR Numero_documento = ? LIMIT 1";
+    $sql_check = "SELECT * FROM clientes WHERE Correo = ? OR Numero_documento = ? LIMIT 1";
     $stmt_check = $conn->prepare($sql_check);
     $stmt_check->bind_param("ss", $correo, $numero_documento);
     $stmt_check->execute();
     $result_check = $stmt_check->get_result();
     if ($row = $result_check->fetch_assoc()) {
         if ($row['Correo'] === $correo) {
-            header('Location: ../registro.html?error=correo');
+            header('Location: ../clientes.html?error=correo');
             exit();
         }
         if ($row['Numero_documento'] === $numero_documento) {
-            header('Location: ../registro.html?error=documento');
+            header('Location: ../clientes.html?error=documento');
             exit();
         }
     }
     $stmt_check->close();
 
-    // Prepara la consulta
-    $sql = "INSERT INTO personas 
-    (Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Fecha_Nacimiento, Correo, Telefono, Tipo_documento, Numero_documento, Sexo)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+    // Insertar nuevo cliente
+    $sql = "INSERT INTO clientes (Primer_nombre, Segundo_nombre, Primer_apellido, Segundo_apellido, Numero_documento, Correo, Telefono, Sexo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     if (!$stmt) {
         die("❌ Error al preparar la consulta: " . $conn->error);
     }
-    $stmt->bind_param("ssssssssss", 
-        $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido,
-        $fecha_nacimiento, $correo, $telefono, $tipo_documento, $numero_documento, $sexo);
+    $stmt->bind_param("ssssssss", $primer_nombre, $segundo_nombre, $primer_apellido, $segundo_apellido, $numero_documento, $correo, $telefono, $sexo);
 
-    // Ejecutar
     if ($stmt->execute()) {
-        header('Location: ../registro.html?success=1');
+        header('Location: ../clientes.html?success=1');
         exit();
     } else {
         $errorMsg = urlencode($stmt->error);
-        header('Location: ../registro.html?error=sql&msg=' . $errorMsg);
+        header('Location: ../clientes.html?error=sql&msg=' . $errorMsg);
         exit();
     }
 
     $stmt->close();
     $conn->close();
-
 } else {
     echo "⚠️ Acceso no permitido.";
 }
